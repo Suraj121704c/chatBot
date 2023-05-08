@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
+const cors = require("cors");
 
 const PORT = process.env.PORT || 3000;
 
@@ -9,6 +10,7 @@ http.listen(PORT, () => {
 });
 
 app.use(express.static(__dirname + "/public"));
+app.use(cors());
 
 // sending index file
 app.get("/", (req, res) => {
